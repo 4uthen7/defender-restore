@@ -15,14 +15,14 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Build with csc.exe
         shell: pwsh
         run: ./build.ps1
 
       - name: Upload DefenderRestore.exe
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: DefenderRestore
           path: dist/DefenderRestore.exe
