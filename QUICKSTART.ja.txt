@@ -19,6 +19,11 @@ one-click-repair.bat（ワンクリック修復.bat）をダブルクリック�
 診断 → 管理者昇格 → 修復 を自動で行います。
 UAC の「はい」だけ押してください。
 
+■ まとめて状態確認（読み取り専用）
+PowerShell で:
+  powershell -ExecutionPolicy Bypass -File .\health-check.ps1
+何も変更せず、エンジン・サービス・ポリシー・アプリ・ファイアウォールを表示します。
+
 ■ うまくいかないとき
 ・「SecurityHealthService を起動できません (1058)」と出た
   → 開始種類が「無効」の可能性があります。

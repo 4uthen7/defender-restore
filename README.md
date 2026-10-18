@@ -123,6 +123,16 @@ which performs diagnosis → elevation → repair without an extra confirmation 
 
 Run **PowerShell as Administrator** (right-click Start → Terminal (Admin) / PowerShell (Admin)).
 
+### Run everything with one script
+
+The repository includes a **read-only** helper:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File .\tools\health-check.ps1
+```
+
+In the release ZIP the same script is at `.\health-check.ps1`. It prints engine status, preferences, services, `sc.exe qc`, policies, the Windows Security app, and firewall state, then shows the next steps. It does not change anything.
+
 ### 1. Engine status
 
 ```powershell
@@ -398,7 +408,8 @@ $csc = "$env:windir\Microsoft.NET\Framework64\v4.0.30319\csc.exe"
 ├─ samples/
 │  └─ sample_report.txt
 ├─ tools/
-│  └─ one-click-repair.bat
+│  ├─ one-click-repair.bat
+│  └─ health-check.ps1
 ├─ build.ps1
 ├─ README.md
 ├─ README.ja.md

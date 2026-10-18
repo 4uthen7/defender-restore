@@ -124,6 +124,16 @@ DefenderRestore.exe --repair --yes
 
 **管理者として PowerShell** を開いて実行してください（スタート → ターミナル (管理者) / PowerShell (管理者)）。
 
+### まとめて確認するスクリプト
+
+リポジトリには**読み取り専用**の確認スクリプトがあります。
+
+```powershell
+powershell -ExecutionPolicy Bypass -File .\tools\health-check.ps1
+```
+
+リリース ZIP では `.\health-check.ps1` にあります。エンジン、設定、サービス、`sc.exe qc`、ポリシー、Windows セキュリティ アプリ、ファイアウォールをまとめて表示し、最後に次の手順を案内します。設定は一切変更しません。
+
 > **cmd では `Get-Service` などの PowerShell コマンドレットは使えません。** cmd の場合は `sc.exe query` / `sc.exe qc` を使ってください。
 
 ### 1. エンジンの状態
@@ -401,7 +411,8 @@ $csc = "$env:windir\Microsoft.NET\Framework64\v4.0.30319\csc.exe"
 ├─ samples/
 │  └─ sample_report.txt
 ├─ tools/
-│  └─ one-click-repair.bat
+│  ├─ one-click-repair.bat
+│  └─ health-check.ps1
 ├─ build.ps1
 ├─ README.md
 ├─ README.ja.md
