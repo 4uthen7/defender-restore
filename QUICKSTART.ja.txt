@@ -1,0 +1,48 @@
+﻿DefenderRestore 使い方（クイックスタート）
+=========================================
+
+■ これは何？
+dControl などで無効化・破壊された Microsoft Defender を、
+診断して正常な状態に戻すツールです。
+Defender を無効化する機能はありません。
+
+■ いちばん簡単な使い方
+1. DefenderRestore.exe をダブルクリック
+2. 赤（要修復）または黄（確認が必要）なら
+   「管理者として実行して修復」をクリック
+3. UAC で「はい」
+4. 修復と再診断が自動で進みます
+5. 「再起動が必要」と出たら Windows を再起動
+
+■ ワンクリック修復
+one-click-repair.bat（ワンクリック修復.bat）をダブルクリックすると、
+診断 → 管理者昇格 → 修復 を自動で行います。
+UAC の「はい」だけ押してください。
+
+■ うまくいかないとき
+・「SecurityHealthService を起動できません (1058)」と出た
+  → 開始種類が「無効」の可能性があります。
+     管理者の cmd で:
+       sc.exe qc SecurityHealthService
+     START_TYPE が 4 DISABLED なら:
+       sc.exe config SecurityHealthService start= demand
+     その後、Windows を再起動してください。
+     Start が 2/3 なのに 1058 の場合は、
+     SCM が古い状態を保持しています。再起動後に再実行してください。
+
+・Windows セキュリティの画面が空になる
+  → wscsvc と SecurityHealthService が Running か確認してください。
+     詳細は README.ja.md の「確認後にすること」を参照。
+
+・OneDrive 上で動かない
+  → .NET Framework の制限です。Downloads などローカルに置いてください。
+
+■ 注意
+・修復には管理者権限が必要です。
+・署名なしのため SmartScreen の警告が出る場合があります。
+  配布元と SHA-256 を確認してください。
+・.NET Framework 4.8 が必要です。
+・会社・学校の管理 PC では管理者に相談してください。
+
+詳しい手順・状態確認コマンド:
+  README.ja.md

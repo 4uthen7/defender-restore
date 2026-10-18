@@ -1,0 +1,42 @@
+﻿Defender 復元ツール 診断レポート
+生成日時: 2026/10/18 17:33:15
+OS: Windows 11 Pro 26H2 (Build 26300.9711)
+権限: 標準ユーザー
+総合判定: 正常
+要修復: 0 件 / 注意: 0 件
+
+--- チェック結果 ---
+[情報] OS / ビルド: Windows 11 Pro 26H2 (Build 26300.9711)
+[情報] 実行権限: 標準ユーザー（診断のみ）
+        対処: 「管理者として実行して修復」を押すと UAC で昇格します
+[正常] Defender ウイルス対策サービス (WinDefend): 開始種類: 自動 / 状態: 実行中
+[正常] ネットワーク検査サービス (WdNisSvc): 開始種類: 手動 / 状態: 実行中
+[正常] Windows セキュリティ サービス (SecurityHealthService): 開始種類: 手動 / 状態: 実行中
+[正常] セキュリティ センター (wscsvc): 開始種類: 自動 / 状態: 実行中
+[正常] Defender ファイアウォール (mpssvc): 開始種類: 自動 / 状態: 実行中
+[正常] Defender for Endpoint (Sense): 開始種類: 手動 / 状態: 停止
+[正常] Defender フィルター ドライバー (WdFilter): 開始種類: ブート
+[正常] Defender ブート ドライバー (WdBoot): 開始種類: ブート
+[正常] ネットワーク検査ドライバー (WdNisDrv): 開始種類: 手動
+[正常] ファイアウォール ドライバー (mpsdrv): 開始種類: 手動
+[正常] Defender ポリシー: Defender を無効化するポリシーはありません
+[正常] セキュリティ センター プロバイダー: AV / ファイアウォール プロバイダーは有効
+[正常] Defender 実設定: 無効化フラグは立っていません
+[正常] IFEO 乗っ取り: Defender 実行ファイルへの IFEO 乗っ取りはありません
+[対象外] レジストリ ACL: ACL の確認には管理者権限が必要です
+[正常] タンパープロテクション: 有効（無効化の変更はブロックされます）
+[正常] Defender エンジン: ウイルス対策: 有効 / リアルタイム保護: 有効 / モード: Normal / 4.18.26090.9
+[正常] Windows セキュリティ アプリ: 登録済み（windowsdefender: プロトコル有効）
+[正常] Defender プラットフォーム: MsMpEng.exe 4.18.26090.9 (4df2f7dd1ad7282fa3437667daf210904670b7f3)（4.18.26090.9-0）
+[正常] 定義ファイル: 最新です（0 日前 / バージョン: 1.461.84.0）
+[情報] dControl の残骸: dControl のフォルダーが残っています: C:\Users\Example\Downloads\dControl（Defender の動作には影響しません）
+        対処: 不要なら手動で削除してください
+[正常] ファイアウォール: すべてのプロファイルで有効
+
+--- サービス構成 ---
+WinDefend: Start=2(自動) / 実行=True / 依存=RpcSs
+WdNisSvc: Start=3(手動) / 実行=True / 依存=WdNisDrv
+SecurityHealthService: Start=3(手動) / 実行=True / 依存=RpcSs
+wscsvc: Start=2(自動) / 実行=True / 依存=RpcSs
+mpssvc: Start=2(自動) / 実行=True / 依存=mpsdrv,bfe,nsi
+Sense: Start=3(手動) / 実行=False / 依存=
